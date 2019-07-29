@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Lato|Russo+One&display=swap');
+
 $bgColor: #999999;
 $secondColor: rgb(0, 163, 41);
 $fontColor: rgb(255, 255, 255);
@@ -11,6 +13,7 @@ $navigationColor: #000;
 }
 body{
     background: $bgColor;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 a:link{
@@ -19,7 +22,7 @@ a:link{
 }
 
 a:hover{
-    background: $bgColor;
+    background: $secondColor;
 }
 
 li{
@@ -32,23 +35,25 @@ li{
     width: 100%;
     height: 39px;
     background: $navigationColor;
+    text-align: center;
+    position: fixed;
+    top: 0;
 
     &__item{
         position: relative;
-        float: left;
+        /*float: left; */
         color: $fontColor;
-        height: 30px;
-        min-width: 110px;
+        height: 29px;
+        min-width: 120px;
+        display: inline-block;
         text-align: center;
-        display: block;
-        padding: 9px 0px 0px;
+        padding: 10px 0px 0px;
         border-right: 1px solid $bgColor;
     }
     &__item:first-child{
         background: $secondColor;
     }
     &__icon{
-
         display: none;
     }
     &__hamburger{
@@ -69,32 +74,48 @@ li{
         top: 0px;
         right: 0px;
     }
+
     .navigation__item:not(:first-child){display: none;}
     .navigation__item{
-
         float: none;
         background: $navigationColor;
     }
 }
 
+
 .container{
     text-align: center;
     width: 100%;
-    padding-top: 20px;
-
+   /* padding-top: 20px;*/
+    &__div{
+        background-image: url("icon/sergei-akulich-Cny5kzA3mEU-unsplash.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
     &__div--bgcolor{
         background: rgb(77, 77, 77);
     }
     &__article{
+        color: white;
+        padding-top: 39px;
         max-width: 1000px;
         min-height: 400px;
         margin: 0 auto;
     }
+    &__logo{
+        margin-top: 100px;
+        font-size: 40px;
 
-    &__header{
+        text-shadow: 0px 0px 10px black, 1px 1px 5px black;
+    }
+    &__header1{
         margin: 20px 0;
-        padding-top: 20px;
-        font-size: 25px;
-
+        padding-top: 40px;
+        font-weight: bold;
+    }
+    &__header2{
+        margin: 0;
+        font-weight: bold;
     }
 }
