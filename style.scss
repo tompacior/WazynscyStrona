@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Lato|Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Lato|Russo+One|Paytone+One&display=swap');
 
-$bgColor: #999999;
-$secondColor: rgb(0, 163, 41);
-$fontColor: rgb(255, 255, 255);
-$hamburgerColor: rgb(255, 255, 255);
-$navigationColor: #000;
+$bgColor: #ffffff;
+$bgColorArticle: #ccc9c9;
+$hoverColor: rgb(255, 255, 255);
+$fontColor: rgb(0, 0, 0);
+$fontColor2: rgb(255, 255, 255);
+$hamburgerColor: rgb(0, 0, 0);
+$navigationColor: rgb(0, 0, 0);
 
 
 *{
@@ -14,6 +16,7 @@ $navigationColor: #000;
 body{
     background: $bgColor;
     font-family: 'Josefin Sans', sans-serif;
+    color: $fontColor;
 }
 
 a:link{
@@ -22,7 +25,9 @@ a:link{
 }
 
 a:hover{
-    background: $secondColor;
+    background: $hoverColor;
+    color: $fontColor;
+    text-shadow: 0 0 1px black;
 }
 
 li{
@@ -33,39 +38,53 @@ li{
 
 .navigation{
     width: 100%;
-    height: 39px;
+    height: 50px;
     background: $navigationColor;
     text-align: center;
     position: fixed;
     top: 0;
+    box-shadow: 0px 0px 0px $navigationColor;
+    z-index: 100;
 
     &__item{
         position: relative;
         /*float: left; */
-        color: $fontColor;
-        height: 29px;
-        min-width: 120px;
+        font-size: 20px;
+        color: $fontColor2;
+        height: 64%;
+        min-width: 140px;
         display: inline-block;
         text-align: center;
-        padding: 10px 0px 0px;
-        border-right: 1px solid $bgColor;
-    }
-    &__item:first-child{
-        background: $secondColor;
-    }
-    &__icon{
-        display: none;
-    }
-    &__hamburger{
-        background: $hamburgerColor;
-        width: 35px;
-        height: 5px;
-        margin:6px;
-        border-radius: 2px;
-    }
+        padding: 18px 10px 0px;
+        margin: 0px -3px;
+
     }
 
-@media screen and (max-width: 600px){
+    &__icon{
+        display: none;
+        width: 50px;
+        height: 50px;
+        background: $hamburgerColor;
+    }
+
+    &__hamburger{
+        background: rgb(255, 255, 255);
+        width: 35px;
+        height: 5px;
+        margin:8px;
+        border-radius: 2px;
+    }
+
+    .navigation__icon:hover{
+        > li {
+            > div{
+                background: rgb(0, 0, 0);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 700px){
     .navigation__icon{
         cursor: pointer;
         float: left;
@@ -88,34 +107,57 @@ li{
     width: 100%;
    /* padding-top: 20px;*/
     &__div{
-        background-image: url("icon/sergei-akulich-Cny5kzA3mEU-unsplash.jpg");
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
+        background: $bgColorArticle;
+        &--first{
+            background-image: url("icon/Webp.jpg");
+            background-attachment: fixed;
+            background-position: 50% 0;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            max-height: 1200px;
+            min-height: 200px;
+        }
     }
     &__div--bgcolor{
-        background: rgb(77, 77, 77);
+        background: $bgColor;
     }
     &__article{
-        color: white;
-        padding-top: 39px;
+        color: $fontColor;
+        padding-top: 79px;
         max-width: 1000px;
-        min-height: 400px;
+        min-height: 700px;
         margin: 0 auto;
+        z-index: 10;
+        &--first{
+            max-width: none;
+        }
+
     }
     &__logo{
-        margin-top: 100px;
-        font-size: 40px;
+        margin-top: 150px;
+        text-align: center;
+    }
 
-        text-shadow: 0px 0px 10px black, 1px 1px 5px black;
-    }
-    &__header1{
-        margin: 20px 0;
-        padding-top: 40px;
-        font-weight: bold;
-    }
-    &__header2{
-        margin: 0;
-        font-weight: bold;
+    &__header{
+        font-size: 3.5vw;
+        letter-spacing: 15px;
+        color: black;
+        vertical-align: middle;
+        text-decoration: bold;
+        padding-bottom: 20px;
+        //text-shadow: 0px 0px 3px white;
+        &--first{
+            border-bottom: 2px solid black;
+            font-family: 'Paytone One', sans-serif;
+            font-size: 8vw;
+            margin: 20px 0;
+            padding-bottom: 0px;
+            text-transform: uppercase;
+            letter-spacing: 20px;
+            color: white;
+            text-shadow: 0px 0px 3px black;
+
+        }
     }
 }
