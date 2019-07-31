@@ -67,7 +67,7 @@ window.ParallaxBG = (function() {
 
 			if((elOffset > offset + vHeight) || (elOffset + elHeight < offset)) { continue; }
 
-			el.style.backgroundPosition = '50% '+Math.round((elOffset - offset)*3/8)+'px';
+			el.style.backgroundPosition = '50% '+Math.round((elOffset - offset)*4/8)+'px';
 		}
 	}
 
