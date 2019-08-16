@@ -1,3 +1,4 @@
+
 let hamburgerClicked = false;
 let navBar = document.querySelectorAll(".navigation__item");
 
@@ -23,7 +24,6 @@ var tomek = document.querySelectorAll(".navigation__item");
         hamburgerClicked = false;
 }}
 )}
-
 //Parallax Effect
 
 window.ParallaxBG = (function() {
@@ -75,3 +75,68 @@ window.ParallaxBG = (function() {
 		init: init
 	}
 })();
+
+$(document).ready(function(){
+	$(".owl-carousel").owlCarousel({
+		loop:true,
+		nav:true,
+		items:1,
+		dots:true,
+		autoHeight:true,
+		URLhashListener:true,
+        autoplayHoverPause:true,
+		startPosition: 'URLHash'
+	});
+
+	var owl = $('.owl-carousel');
+	owl.owlCarousel();
+
+	//Variables for dots under slider
+	var dots = $('.owl-dot');
+	let item = 0;
+
+
+	//Signed active slider dot
+	let changeDots = function(item){
+		dots.removeClass('active');
+		dots.eq(item).trigger('to.owl.carousel', [item,300])
+		.addClass('active');
+		console.log(item);
+	}
+	//Signed first dot as default
+	changeDots(item);
+
+	// Go to the next item
+	$('.owl-next').click(function() {
+		owl.trigger('next.owl.carousel');
+		if(item>=4) item=0;
+		else item++;
+		changeDots(item);
+	})
+	// Go to the previous item
+	$('.owl-prev').click(function() {
+		// With optional speed parameter
+		// Parameters has to be in square bracket '[]'
+		owl.trigger('prev.owl.carousel', [300]);
+		if(item<=0) item =4;
+		else item--;
+		changeDots(item);
+	})
+
+	//Add sign dots under slider
+	dots.on('click',function(){
+		if(this==dots[0]){
+			item =0;
+		}else if(this==dots[1]){
+			item =1;
+		}else if(this==dots[2]){
+			item =2;
+		}else if(this==dots[3]){
+			item =3;
+		}else if(this==dots[4]){
+			item =4;
+		}
+
+		changeDots(item);
+	})
+})
