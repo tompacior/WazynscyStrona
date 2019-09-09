@@ -14,7 +14,8 @@
 			padding: $nav-padding;
 			background: $nav-background;
 			cursor: pointer;
-			border-radius: 3px;
+			border-radius: $nav-rounded;
+
 			&:hover {
 				background: $nav-background-hover;
 				color:$nav-color-hover;
