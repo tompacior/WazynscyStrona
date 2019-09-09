@@ -42,8 +42,8 @@ window.ParallaxBG = (function () {
 		images = [].slice.call(document.querySelectorAll('.js-parallax-bg'));
 		if (!images.length) { return }
 
-		Gator(window).on('scroll', doParallax);
-		Gator(window).on('resize', doParallax);
+		$(window).on('scroll', doParallax);
+		$(window).on('resize', doParallax);
 		doParallax();
 	}
 
@@ -84,6 +84,9 @@ window.ParallaxBG = (function () {
 		init: init
 	}
 })();
+
+ParallaxBG.init();
+
 
 //Add owlCarousel
 $(document).ready(function () {
@@ -234,4 +237,5 @@ document.addEventListener("DOMContentLoaded", function () {
 				smoothScroll("#section3", 1000);
 	});
 });
+
 
