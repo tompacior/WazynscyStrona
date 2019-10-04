@@ -159,6 +159,7 @@ $(document).ready(function () {
 	})
 })
 
+//Add toggle buttons show/hide galleries
 document.addEventListener('DOMContentLoaded', function () {
 	let buttons = document.querySelectorAll('.offer__btn');
 	let galleries = document.querySelectorAll('.offer__box-gallery');
@@ -183,6 +184,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 }, false);
 
+//Smootch scroll
 document.addEventListener("DOMContentLoaded", function () {
 	//let sGlowna = document.querySelector("#strona_glowna");
 	//let aktualnosci = document.querySelector("#section1");
