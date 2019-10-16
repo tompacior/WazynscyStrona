@@ -24,11 +24,11 @@ const config ={
     html: "./src/*.html"
   },
   dist: {
-    base: "./dist/",
-    fonts: "./dist/fonts",
-    images:"./dist/images",
-    css: "./dist/css",
-    js: "./dist/js"
+    base: "./docs/",
+    fonts: "./docs/fonts",
+    images:"./docs/images",
+    css: "./docs/css",
+    js: "./docs/js"
   }
 }
 
@@ -90,7 +90,7 @@ function jsTask(done){
 function browserSyncTask() {
   browserSync.init({
       server: {
-          baseDir: "./dist"
+          baseDir: "./docs"
       },
       ui: {
         port: 8080
