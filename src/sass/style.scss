@@ -7,7 +7,7 @@ $bgColorArticle: #f1f0f0;
 $hoverColor: rgb(75, 104, 116);
 $fontColor: rgb(0, 0, 0);
 $fontColor2: rgb(255, 255, 255);
-$hamburgerColor: rgb(0, 0, 0);
+$hamburgerColor: rgb(66, 86, 94);
 $navigationColor: rgb(66, 86, 94);// rgb(56, 56, 56);
 $fontelloIcon: rgb(0, 0, 0);
 
@@ -19,7 +19,6 @@ $fontelloIcon: rgb(0, 0, 0);
     font-size: 18px;
     font-weight: 400;
     line-height: 30px;
-    //font-size: 1.8vw;
     text-align: justify;
 }
 
@@ -51,6 +50,23 @@ li{
     margin: 0px;
 }
 
+.hamburgerClose{
+    > li {
+        > div{
+            background: transparent;
+        }
+        >div:before{
+            background: black;
+            transform: rotate(45deg);
+            top: 0px;
+        }
+        >div:after{
+            background: black;
+            transform: rotate(-45deg);
+            top: 0px;
+        }
+    }
+}
 
 .navigation{
     width: 100%;
@@ -86,21 +102,38 @@ li{
         width: 50px;
         height: 50px;
         background: $hamburgerColor;
+        position: relative;
     }
 
-    &__hamburger{
-        background: rgb(255, 255, 255);
+    @mixin line{
+        position: absolute;
+        background: white;
         width: 35px;
         height: 5px;
-        margin:8px;
         border-radius: 2px;
     }
 
-    .navigation__icon:hover{
-        > li {
-            > div{
-                background: rgb(0, 0, 0);
-            }
+    &__hamburger{
+        @include line;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+
+        &::before{
+            content: "";
+            @include line;
+            left: 0;
+            top: -12px;
+            transform: rotate(0deg);
+            transition: all 0.4s ease 0s;
+        }
+        &::after{
+            content: "";
+            @include line;
+            left: 0;
+            top: 12px;
+            transform: rotate(0deg);
+            transition: all 0.4s ease 0s;
         }
     }
 }
@@ -135,10 +168,10 @@ li{
         background-attachment: fixed;
         background-position: 50% 0;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: 200vh;
         height: 80vh;
-        max-height: 1200px;
-        min-height: 500px;
+        max-height: 700px;
+        min-height: 400px;
    }
 
     &__div{
@@ -146,7 +179,7 @@ li{
         &--first{
             background-color: rgba(0,0,0,0.3);
             height: 80vh;
-            min-height: 500px;
+            min-height: 400px;
         }
     }
     &__div--bgcolor{
@@ -242,12 +275,12 @@ li{
             padding-top: 12px;
             margin-top: 20px;
             font-family: 'Josefin Sans', sans-serif;
-            font-size: 16px;
-            color: black;
-            letter-spacing: 4px;
-            background-color: Transparent;
+            font-size: 18px;
+            color: whitesmoke;
+            letter-spacing: 3px;
+            background-color: transparent;
             background-repeat:no-repeat;
-            border: 2px solid lightgray;
+            border: 2px solid black;
             cursor:pointer;
             overflow: hidden;
             transition: all 0.4s ease 0s;
@@ -273,16 +306,6 @@ li{
     &__Aktualnosci{
         padding-bottom: 20px;
         .aktualnosci{
-            &__background{
-                /*
-                //background: rgb(165, 165, 165);
-                margin: 0px 15px;
-                background: rgba(256,256,256,0.8);
-                box-shadow: 0px 1px 5px black;
-                border-bottom-right-radius: 4px;
-                border-bottom-left-radius: 4px;
-                */
-            }
             &__header{
             //margin: 0px 15px;
             padding: 30px 25px 10px 15px;
@@ -490,6 +513,11 @@ li{
             }
         }
     }
+    .offer{
+        &__flexbox{
+            display: block;
+        }
+    }
 }
 @media screen and (max-width: 450px){
     .article{
@@ -507,17 +535,6 @@ li{
     }
 }
 
-@media screen and (max-width: 700px){
-    .offer{
-        &__flexbox{
-            display: block;
-        }
-        &__gallery{
-
-        }
-    }
-
-}
 
 @keyframes wysun{
     from {

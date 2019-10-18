@@ -4,34 +4,31 @@ $(document).ready(function () {
 
 	var hamburgerClicked = false ;
 	let navBar = $(".navigation__item");
-	$(".navigation__icon").on("click", function hamburgerClick() {
+	const hamburgerIcon = $(".navigation__icon");
+	hamburgerIcon.on("click", function hamburgerClick() {
 		if (!hamburgerClicked) {
 			for (let i = 0; i < navBar.length; i++) {
 				//navBar[i].style.display = "block";
 				navBar.eq(i).attr("style", "display:block");
 			}
+			$(this).addClass("hamburgerClose");
 			hamburgerClicked = true;
 		} else {
 			for (let i = 0; i < navBar.length; i++) {
 				//navBar[i].removeAttribute("style");
 				navBar.eq(i).removeAttr("style");
 			}
+			$(this).removeClass("hamburgerClose");
 			hamburgerClicked = false;
 		}
 	});
 
-	//Clear open menu//
-	var tomek = $(".navigation__item");
-	for (let i = 0; i < tomek.length; i++) {
-		tomek.eq(i).on("click", function () {
-			for (let i = 0; i < tomek.length; i++) {
-				//tomek[i].removeAttribute("style");
-				tomek.removeAttr("style");
-				hamburgerClicked = false;
-			}
-		}
-		)
-	}
+	//close menu//
+	navBar.on("click", function () {
+		navBar.removeAttr("style");
+		hamburgerIcon.removeClass("hamburgerClose");
+		hamburgerClicked = false;
+	})
 })
 
 //Parallax Effect
@@ -76,7 +73,7 @@ window.ParallaxBG = (function () {
 
 			if ((elOffset > offset + vHeight) || (elOffset + elHeight < offset)) { continue; }
 
-			el.style.backgroundPosition = '50% ' + Math.round((elOffset - offset) * 4 / 8) + 'px';
+			el.style.backgroundPosition = '50% ' + Math.round((elOffset - offset) * 3 / 8) + 'px';
 		}
 	}
 
